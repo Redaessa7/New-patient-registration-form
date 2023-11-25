@@ -71,42 +71,107 @@ struct stPatient
     short age;
 };
 
+// using Procedures:
+void readInfo(stPatient &PatientInfo)
+{
+    // Personal Info:
+    cout << "========================\n";
+    cout << "Personal Info\n";
+    cout << "========================\n";
+    cout << "First Name: ";
+    cin >> PatientInfo.name.firstName;
+    cout << "Last Name: ";
+    cin >> PatientInfo.name.lastName;
+    cout << "Age: ";
+    cin >> PatientInfo.age;
+
+    // cout << "Gander (0) For Male (1) For Female: ";
+    // cin >> PatientInfo.gender;
+
+    // Birth Date Info
+    cout << "========================\n";
+    cout << "Birth Date\n";
+    cout << "========================\n";
+    cout << "Day: ";
+    cin >> PatientInfo.birthDate.day;
+    cout << "Month: ";
+    cin >> PatientInfo.birthDate.month;
+    cout << "Year: ";
+    cin >> PatientInfo.birthDate.year;
+
+    // Contact Info
+    cout << "========================\n";
+    cout << "Contact Info\n";
+    cout << "========================\n";
+    cout << "Phone: ";
+    cin >> PatientInfo.contact.phone;
+    cout << "E-Mail: ";
+    cin >> PatientInfo.contact.e_mail;
+
+    // Address Info
+    cout << "========================\n";
+    cout << "Address Info\n";
+    cout << "========================\n";
+    cout << "Street Name: ";
+    cin >> PatientInfo.address.streetName;
+    cout << "City: ";
+    cin >> PatientInfo.address.city;
+    cout << "Capital: ";
+    cin >> PatientInfo.address.capital;
+    cout << "ZipCode: ";
+    cin >> PatientInfo.address.zipCode;
+
+    // more info
+    cout << "========================\n";
+    cout << "More Info\n";
+    cout << "========================\n";
+    // cout << "Marital Status: ";
+    // cin >> PatientInfo.maritalStatus;
+    cout << "Height: ";
+    cin >> PatientInfo.Height;
+    cout << "Weight: ";
+    cin >> PatientInfo.Weight;
+
+    // Patient's relative info
+    cout << "========================\n";
+    cout << "Patient's relative info\n";
+    cout << "========================\n";
+    cout << "First Name: ";
+    cin >> PatientInfo.patientRelative.name.firstName;
+    cout << "Last Name: ";
+    cin >> PatientInfo.patientRelative.name.lastName;
+    cout << "Relative Relation: ";
+    cin >> PatientInfo.patientRelative.relativeRelation;
+    cout << "Phone: ";
+    cin >> PatientInfo.patientRelative.contact.phone;
+    cout << "E-Mail: ";
+    cin >> PatientInfo.patientRelative.contact.e_mail;
+}
+
+void printInfo(stPatient PatientInfo)
+{
+    cout << "\n================================================\n";
+    cout << "================ Patient Info =================\n";
+    cout << "=|Name: " << PatientInfo.name.firstName + " " + PatientInfo.name.lastName << "\n";
+    cout << "=|Age: " << PatientInfo.age << "\n";
+    cout << "=|BirthDay: " << PatientInfo.birthDate.day << "/" << PatientInfo.birthDate.month << "/" << PatientInfo.birthDate.year << "\n";
+    cout << "=|Address: " << PatientInfo.address.streetName << ", " << PatientInfo.address.city << ", " << PatientInfo.address.capital << " " << PatientInfo.address.zipCode << " zip\n";
+    cout << "=|Phone: " << PatientInfo.contact.phone << "\n";
+    cout << "=|E-Mail: " << PatientInfo.contact.e_mail << "\n";
+    cout << "=|Height: " << PatientInfo.Height << "\t=|Weight: " << PatientInfo.Weight << endl;
+    cout << "\n========== Patient's Relative Info ==========\n";
+    cout << "=|Name: " << PatientInfo.patientRelative.name.firstName + " " + PatientInfo.patientRelative.name.lastName << "\n";
+    cout << "=|Phone: " << PatientInfo.contact.phone << "\n";
+    cout << "=|E-Mail: " << PatientInfo.contact.e_mail << "\n";
+    cout << "================================================" << endl;
+}
+
 // main file
 int main()
 {
     // create new patient
     stPatient patientOne;
-
-    // add data
-    patientOne.name.firstName = "Reda";
-    patientOne.name.lastName = "Essa";
-    patientOne.age = 23;
-    patientOne.gender = enGender::Male;
-    // Birth Date Info
-    patientOne.birthDate.day = 18;
-    patientOne.birthDate.month = 7;
-    patientOne.birthDate.year = 2000;
-    // Contact Info
-    patientOne.contact.phone = "01091645795";
-    patientOne.contact.e_mail = "Redaessa27@gmail.com";
-    // Address Info
-    patientOne.address.streetName = "Sidi_Gaber St 303";
-    patientOne.address.city = "Smoha";
-    patientOne.address.capital = "Alix";
-    patientOne.address.zipCode = 2245;
-    // more info
-    patientOne.maritalStatus = enMaritalStatus::Single;
-    patientOne.Height = 156.5;
-    patientOne.Weight = 85;
-    // Patient's relative info
-    patientOne.patientRelative.name.firstName = "Saied";
-    patientOne.patientRelative.name.lastName = "Essa";
-    patientOne.patientRelative.relativeRelation = "her Dad";
-    patientOne.patientRelative.contact.phone = "012435043054";
-    patientOne.patientRelative.contact.e_mail = "saiedessa@gmail.com";
-
-    // print info
-    cout << "Name: " << patientOne.name.firstName + " " + patientOne.name.lastName << endl;
-    cout << "Gender: " << (patientOne.gender ? "Female" : "Male") << endl;
+    readInfo(patientOne);
+    printInfo(patientOne);
     return 0;
 }
